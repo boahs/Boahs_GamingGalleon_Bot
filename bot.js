@@ -1,6 +1,8 @@
 const tmi = require("tmi.js");
 require("dotenv").config();
 const result = require("./index");
+console.log(result.bullshit);
+console.log(result.bullShitter());
 
 const opts = {
   identity: {
@@ -9,8 +11,9 @@ const opts = {
   },
   channels: ["boahs", "gaminggalleontv", "the_gaming_galleon"],
 };
-//"gaminggalleontv" "the_gaming_galleon"
 
+const API_KEY = process.env.API_KEY;
+//"gaminggalleontv" "the_gaming_galleon"
 const client = new tmi.client(opts);
 
 client.on("message", onMessageHandler);
@@ -46,7 +49,7 @@ function onMessageHandler(target, context, msg, self) {
   // If the command is known, let's execute it
   if (commandName === "!dice") {
     const num = rollDice();
-    client.say(target, `@${username},You rolled a ${num}`);
+    client.say(target, `You rolled a ${num}`);
     console.log(userReturn);
   } else if (commandName === "!pan") {
     client.say(target, `Pancakes`);
@@ -76,10 +79,10 @@ function onMessageHandler(target, context, msg, self) {
     );
     console.log(userReturn);
   } else if (commandName === "hi") {
-    client.say(target, `Ahoy ${username} ! thegamJollyroger`);
+    client.say(target, `Ahoy ! thegamJollyroger`);
     console.log(userReturn);
   } else if (commandName === "hi boahs") {
-    client.say(target, `hi ${username} fgsHeartB `);
+    client.say(target, `hi fgsHeartB `);
     console.log(userReturn);
   } else if (commandName === "@boahs <3") {
     client.say(target, " fgsHeartB ");
@@ -91,58 +94,58 @@ function onMessageHandler(target, context, msg, self) {
     client.say(target, "thegamCapnshock");
     console.log(userReturn);
   } else if (commandName === "!sonic") {
-    client.say(target, `Sonic leader: ${result.listSonic.rows}`);
+    client.say(target, `Sonic leader: ${result.listSonic(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!light") {
     client.say(
       target,
-      `Light Crusader leader: ${result.listLightCrusader.rows}`
+      `Light Crusader leader: ${result.listLightCrusader(API_KEY)}`
     );
     console.log(userReturn);
   } else if (commandName === "!maximum") {
     client.say(
       target,
-      ` Maximum Carnage leader:  ${result.listMaximumCarnage.rows}`
+      ` Maximum Carnage leader:  ${result.listMaximumCarnage(API_KEY)}`
     );
     console.log(userReturn);
   } else if (commandName === "!mercs") {
-    client.say(target, ` Mercs leader: ${result.listMercs.rows} `);
+    client.say(target, ` Mercs leader: ${result.listMercs(API_KEY)} `);
     console.log(userReturn);
   } else if (commandName === "!eternal") {
     client.say(
       target,
-      ` Eternal Champions leader: ${result.listEternalChampions.rows} `
+      ` Eternal Champions leader: ${result.listEternalChampions(API_KEY)} `
     );
     console.log(userReturn);
   } else if (commandName === "!junglestrike") {
     client.say(
       target,
-      ` Jungle Strike leader: ${result.listJungleStrike.rows}`
+      ` Jungle Strike leader: ${result.listJungleStrike(API_KEY)}`
     );
     console.log(userReturn);
   } else if (commandName === "!shining") {
     client.say(
       target,
-      ` Shining Darkness Leader : ${result.listShiningDarkness.rows}`
+      ` Shining Darkness Leader : ${result.listShiningDarkness(API_KEY)}`
     );
     console.log(userReturn);
   } else if (commandName === "!xmen") {
-    client.say(target, `Xmen leader: ${result.listXmen.rows}`);
+    client.say(target, `Xmen leader: ${result.listXmen(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!biohazard") {
     client.say(
       target,
-      ` BioHazard Battle leader: ${result.listBiohazard.rows}`
+      ` BioHazard Battle leader: ${result.listBiohazard(API_KEY)}`
     );
     console.log(userReturn);
   } else if (commandName === "!nhl") {
-    client.say(target, `NHL leader: ${result.listNHL.rows}`);
+    client.say(target, `NHL leader: ${result.listNHL(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!chakan") {
-    client.say(target, `Chakan leader: ${result.listChakan.rows}`);
+    client.say(target, `Chakan leader: ${result.listChakan(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!crueball") {
-    client.say(target, `Crüe Ball leader: ${result.listCrueBall.rows}`);
+    client.say(target, `Crüe Ball leader: ${result.listCrueBall(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "thegamRazTWiz") {
     client.say(target, " thegamRazTWiz ");
@@ -158,7 +161,7 @@ function onMessageHandler(target, context, msg, self) {
   } else if (commandName === "!commands") {
     client.say(
       target,
-      `@${username} https://pastebin.com/DKJ6q0zw An updated list of commands can be found here`
+      `https://pastebin.com/CLAxPSUN An updated list of commands can be found here`
     );
     console.log(userReturn);
   } else {

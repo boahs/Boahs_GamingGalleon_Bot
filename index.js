@@ -1,6 +1,9 @@
 const fs = require("fs");
 const readline = require("readline");
 const { google } = require("googleapis");
+require("dotenv").config();
+
+const opts = process.env.API_KEY;
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
@@ -90,280 +93,549 @@ function getNewToken(oAuth2Client, callback) {
  * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
  */
 
-function listSonic(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Sonic & Knuckles highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
+// function listSonic(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "B5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Sonic & Knuckles highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
 
-function listLightCrusader(auth) {
+const listSonic = (auth) => {
   const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Light Crusader highscores:  ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
 
-function listMaximumCarnage(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
   sheets.spreadsheets.values.get(
     {
       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
+      range: "B5",
     },
     (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Maximum Carnage highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
       } else {
-        console.log("No data found.");
+        console.log(`Sonic & Knuckles leader: ${res.data.values[0]}`);
+        return res.data.values[0];
       }
     }
   );
-}
+};
 
-function listMercs(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Mercs highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
+// function listLightCrusader(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
 
-function listEternalChampions(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Ternal Champions highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "C5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log(`Light Crusader highscores: `);
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           return console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
 
-function listJungleStrike(auth) {
+const listLightCrusader = (auth) => {
   const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Jungle Strike highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
 
-function listShiningDarkness(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
   sheets.spreadsheets.values.get(
     {
       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
+      range: "C5",
     },
     (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Shining Darkness highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
       } else {
-        console.log("No data found.");
+        console.log(`Light Crusader leader: ${res.data.values[0]}`);
+        return res.data.values[0];
       }
     }
   );
-}
+};
 
-function listXmen(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Xmen highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
+// function listMaximumCarnage(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "D5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Maximum Carnage highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
 
-function listBiohazard(auth) {
+const listMaximumCarnage = (auth) => {
   const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Biohazard battle highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
 
-function listNHL(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
   sheets.spreadsheets.values.get(
     {
       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
+      range: "D5",
     },
     (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("NHL highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
       } else {
-        console.log("No data found.");
+        console.log(`Maximum Carnage leader: ${res.data.values[0]}`);
+        return res.data.values[0];
       }
     }
   );
-}
+};
 
-function listChakan(auth) {
-  const sheets = google.sheets({ version: "v4", auth });
-  sheets.spreadsheets.values.get(
-    {
-      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
-    },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("Chakan highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
-      } else {
-        console.log("No data found.");
-      }
-    }
-  );
-}
+// function listMercs(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "E5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Mercs highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
 
-function listCrueBall(auth) {
+const listMercs = (auth) => {
   const sheets = google.sheets({ version: "v4", auth });
+
   sheets.spreadsheets.values.get(
     {
       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
-      range: "A6",
+      range: "E5",
     },
     (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const rows = res.data.values;
-      if (rows.length) {
-        console.log("CrueBall highscores: ");
-        // Print columns A and E, which correspond to indices 0 and 4.
-        rows.map((row) => {
-          console.log(`${row[0]}, ${row[8]}`);
-        });
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
       } else {
-        console.log("No data found.");
+        console.log(`Mercs leader: ${res.data.values[0]}`);
+        return res.data.values[0];
       }
     }
   );
+};
+
+// function listEternalChampions(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "F5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Ternal Champions highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
+
+const listEternalChampions = (auth) => {
+  const sheets = google.sheets({ version: "v4", auth });
+
+  sheets.spreadsheets.values.get(
+    {
+      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+      range: "F5",
+    },
+    (err, res) => {
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
+      } else {
+        console.log(`Eternal Champions leader: ${res.data.values[0]}`);
+        return res.data.values[0];
+      }
+    }
+  );
+};
+
+// function listJungleStrike(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "G5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Jungle Strike highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
+
+const listJungleStrike = (auth) => {
+  const sheets = google.sheets({ version: "v4", auth });
+
+  sheets.spreadsheets.values.get(
+    {
+      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+      range: "G5",
+    },
+    (err, res) => {
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
+      } else {
+        console.log(`Jungle Strike leader: ${res.data.values[0]}`);
+        return res.data.values[0];
+      }
+    }
+  );
+};
+
+// function listShiningDarkness(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "H5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Shining Darkness highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
+
+const getLeader = (game) => {};
+
+const listShiningDarkness = (auth) => {
+  const sheets = google.sheets({ version: "v4", auth });
+
+  sheets.spreadsheets.values.get(
+    {
+      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+      range: "H5",
+    },
+    (err, res) => {
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
+      } else {
+        // console.table(res.data);
+        console.log(`Shining Darkness leader: ${res.data.values[0]}`);
+        return res.data.values[0];
+      }
+    }
+  );
+};
+
+// function listShiningDarkness(opts) {
+//   const sheets = google.sheets({ version: "v4", auth: opts });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "H5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       if (res.data.values === undefined) {
+//         return "No Data";
+//       } else {
+//         console.log(res.data.values[0]);
+//         return res.data.values[0];
+//       }
+//     }
+//   );
+// }
+
+// function listXmen(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "I5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Xmen highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
+
+const listXmen = (auth) => {
+  const sheets = google.sheets({ version: "v4", auth });
+
+  sheets.spreadsheets.values.get(
+    {
+      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+      range: "I5",
+    },
+    (err, res) => {
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
+      } else {
+        console.log(`Xmen leader: ${res.data.values[0]}`);
+        return res.data.values[0];
+      }
+    }
+  );
+};
+
+// function listBiohazard(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "J5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Biohazard battle highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
+
+const listBiohazard = (auth) => {
+  const sheets = google.sheets({ version: "v4", auth });
+
+  sheets.spreadsheets.values.get(
+    {
+      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+      range: "J5",
+    },
+    (err, res) => {
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
+      } else {
+        console.log(`Biohazard Battle leader: ${res.data.values[0]}`);
+        return res.data.values[0];
+      }
+    }
+  );
+};
+
+// function listNHL(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "K5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("NHL highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
+
+const listNHL = (auth) => {
+  const sheets = google.sheets({ version: "v4", auth });
+
+  sheets.spreadsheets.values.get(
+    {
+      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+      range: "K5",
+    },
+    (err, res) => {
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
+      } else {
+        console.log(`NHL leader: ${res.data.values[0]}`);
+        return res.data.values[0];
+      }
+    }
+  );
+};
+
+// function listChakan(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "L5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("Chakan highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
+
+const listChakan = (auth) => {
+  const sheets = google.sheets({ version: "v4", auth });
+
+  sheets.spreadsheets.values.get(
+    {
+      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+      range: "L5",
+    },
+    (err, res) => {
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
+      } else {
+        console.log(`Chakan leader: ${res.data.values[0]}`);
+        return res.data.values[0];
+      }
+    }
+  );
+};
+
+// function listCrueBall(auth) {
+//   const sheets = google.sheets({ version: "v4", auth });
+//   sheets.spreadsheets.values.get(
+//     {
+//       spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+//       range: "M5",
+//     },
+//     (err, res) => {
+//       if (err) return console.log("The API returned an error: " + err);
+//       const rows = res.data.values;
+//       if (rows.length) {
+//         console.log("CrueBall highscores: ");
+//         // Print columns A and E, which correspond to indices 0 and 4.
+//         rows.map((row) => {
+//           console.log(`${row[0]}`);
+//         });
+//       } else {
+//         console.log("No data found.");
+//       }
+//     }
+//   );
+// }
+
+const listCrueBall = (auth) => {
+  const sheets = google.sheets({ version: "v4", auth });
+
+  sheets.spreadsheets.values.get(
+    {
+      spreadsheetId: "1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM",
+      range: "M5",
+    },
+    (err, res) => {
+      if (err) return console.log("API returned an error: " + err);
+      if (res.data.values === undefined) {
+        return "No Data";
+      } else {
+        console.log(`CrueBall leader: ${res.data.values[0]}`);
+        return res.data.values[0];
+      }
+    }
+  );
+};
+
+const bullshit = "fuck";
+
+function bullShitter() {
+  return "Fucking FUCK";
 }
 
 module.exports = {
@@ -379,15 +651,6 @@ module.exports = {
   listNHL,
   listChakan,
   listCrueBall,
+  bullshit,
+  bullShitter,
 };
-// module.exports = { listLightCrusader };
-// module.exports = { listMaximumCarnage };
-// module.exports = { listMercs };
-// module.exports = { listEternalChampions };
-// module.exports = { listJungleStrike };
-// module.exports = { listShiningDarkness };
-// module.exports = { listXmen };
-// module.exports = { listBiohazard };
-// module.exports = { listNHL };
-// module.exports = { listChakan };
-// module.exports = { listCrueBall };
