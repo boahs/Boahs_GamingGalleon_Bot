@@ -259,13 +259,14 @@ const listMercs = (auth) => {
       if (res.data.values === undefined) {
         return "No Data";
       } else {
+        // console.table(res.data.values[0]);
         console.log(`Mercs leader: ${res.data.values[0]}`);
         return res.data.values[0];
       }
     }
   );
 };
-
+console.log(`DATA DATA DATA DATA 34234234234 ${listMercs(opts)}`);
 // function listEternalChampions(auth) {
 //   const sheets = google.sheets({ version: "v4", auth });
 //   sheets.spreadsheets.values.get(
@@ -492,16 +493,19 @@ const listBiohazard = (auth) => {
       range: "J5",
     },
     (err, res) => {
+      const dataTest = [];
       if (err) return console.log("API returned an error: " + err);
       if (res.data.values === undefined) {
         return "No Data";
       } else {
         console.log(`Biohazard Battle leader: ${res.data.values[0]}`);
-        return res.data.values[0];
+        dataTest.push(res.data.values[0]);
+        return dataTest;
       }
     }
   );
 };
+listBiohazard(opts);
 
 // function listNHL(auth) {
 //   const sheets = google.sheets({ version: "v4", auth });
