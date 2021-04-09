@@ -1,9 +1,8 @@
 const tmi = require("tmi.js");
 require("dotenv").config();
 const result = require("./index");
-console.log(result.bullshit);
-console.log(result.bullShitter());
 const results = require("./commands/random");
+const commandMaster = require("tmi.js/lib/commands");
 
 const opts = {
   identity: {
@@ -67,6 +66,7 @@ function onMessageHandler(target, context, msg, self) {
       "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0"
     );
     console.log(userReturn);
+  } else if (commandName === "!emoteOnly") {
   } else if (commandName === "!voyage") {
     client.say(
       target,
@@ -103,14 +103,14 @@ function onMessageHandler(target, context, msg, self) {
     // client.say(target, `Sonic leader: ${result.listSonic(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!light") {
-    client.say(target, "Light Crusader leader: ex_mortis");
+    client.say(target, "Light Crusader leader: ssdNinja");
     // client.say(
     //   target,
     //   `Light Crusader leader: ${result.listLightCrusader(API_KEY)}`
     // );
     console.log(userReturn);
   } else if (commandName === "!maximum") {
-    client.say(target, "Maximum carnage leader: gunst4r");
+    client.say(target, "Maximum carnage leader: ssdninja");
     // client.say(
     //   target,
     //   ` Maximum Carnage leader:  ${result.listMaximumCarnage(API_KEY)}`
@@ -146,7 +146,7 @@ function onMessageHandler(target, context, msg, self) {
     // client.say(target, `Xmen leader: ${result.listXmen(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!biohazard") {
-    client.say(target, "biohazard battle leader: Ex_Mortis");
+    client.say(target, "biohazard battle leader: ssdNinja");
     // client.say(
     //   target,
     //   ` BioHazard Battle leader: ${result.listBiohazard(API_KEY)}`
@@ -157,11 +157,11 @@ function onMessageHandler(target, context, msg, self) {
     // client.say(target, `NHL leader: ${result.listNHL(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!chakan") {
-    client.say(target, "chakan leader: Foedub");
+    client.say(target, "chakan leader: ssdNinja");
     // client.say(target, `Chakan leader: ${result.listChakan(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!crueball") {
-    client.say(target, "crueball leader: TheMorningAfterKill");
+    client.say(target, "crueball leader: RichSoCash");
     // client.say(target, `Crüe Ball leader: ${result.listCrueBall(API_KEY)}`);
     console.log(userReturn);
   } else if (commandName === "!youtube") {
@@ -169,7 +169,7 @@ function onMessageHandler(target, context, msg, self) {
   } else if (commandName === "!commands") {
     client.say(
       target,
-      `https://pastebin.com/DVAuxeVN An updated list of commands can be found here`
+      `https://pastebin.com/BFatN6qL An updated list of commands can be found here`
     );
     console.log(userReturn);
   } else {
