@@ -91,7 +91,7 @@ function onMessageHandler(target, context, msg, self) {
 
 
 
-const announceGameWinner = () => {
+const game1 = () => {
 
 
   async function main () {
@@ -130,7 +130,6 @@ const announceGameWinner = () => {
   
   }
   main().then(value => {
-    const re = /([][])/g
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -141,7 +140,546 @@ const announceGameWinner = () => {
   })
 };
 
-// thanks hodeman :) 
+
+const game2 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game3 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game4 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game5 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game6 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game7 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game8 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game9 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game10 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game11 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+const game12 = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+// thanks hodeman couldn't of figured out the solution to resolving promise await returned without you! :) 
 
 
 
@@ -150,17 +688,11 @@ const announceGameWinner = () => {
     case "!commands":
       client.say(target, "!leaderboard , !{gamename} , !voyage , !deals")
       break;
-    // case "!clear":
-    //   clearDB.clearDB();
-    //   break;
-      case "!rip":
-        client.say(target, `RIP: 78 druid https://clips.twitch.tv/DiligentKnottyRadishMikeHogu-z9pwuoT0j-Knm_ni , 88 pally https://youtu.be/hFwwNr5_50c ${randomGester.randomGester()} ${context.username} !??!!! `)
-        break;
     case "!pan":
       client.say(target, `${context.username} loves pancakes`) 
       break;
       case "!abc":
-      client.say(target, `${announceGameWinner()}`) 
+      client.say(target, `${game1()}`) 
       break;
     case "!dice":
     const num = rollDice();
@@ -181,23 +713,9 @@ const announceGameWinner = () => {
     case "!leaderboard":
       client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0");
       break;
-    // case "!addscore": 
-    //   args.length === 3 ? newScore.addNewTopScores(args[0], args[1],args[2]) : client.say(target, "Please enter the correct format");
-    //   break;
-    // case "!top10":
-    //  client.say(target, `The top 10 scores are ${fetchTop10.fetchTop10()}`)
-    //   break;
-    // case "!top":
-    //   client.say(target, `The top player is ${topPlayer}`)
-    //   break;
     case "!deals":
       client.say(target, "https://clips.twitch.tv/GleamingLittleOcelotWTRuck");
       break;
-    // case "!random":
-    //      args.length === 2 ? getRandomNumber.getRandomNumber(args[0], args[1]) : client.say(target, `${context.username} , please enter two numbers. Example: '33, 45'`); 
-    //   break;
-    // default: 
-    // commandName.startsWith("!") ? client.say(target, `${context.username} it doesn't look like you posted a command I can understand. Have you checked out the command list typing "!commands" ?`) : null;
   }
   
 
@@ -214,19 +732,4 @@ function onConnectedHandler(addr, port) {
   console.log(`* Connected to ${addr}:${port}`);
 }
 
-// if (commandName === "!galleon") {
-//   client.say(target, `, gaming`);
-// }
-// anon connection
-// const client = new tmi.Client({
-//   connection: { reconnect: true },
-//   channels: ["boahs"],
-// });
 
-// client.connect();
-
-// client.on("message", (channel, tags, message, self) => {
-//   // "Alca: Hello, World!"
-//   console.log(`${tags["display-name"]}: ${message} on ${channel}`);
-// });
-//anon connection
