@@ -1,5 +1,6 @@
 const {google} = require('googleapis');
 const sheets = google.sheets('v4');
+const axios = require('axios');
 require('dotenv').config();
 
 async function main () {
@@ -20,20 +21,25 @@ async function main () {
       auth: authClient,
     };
   
-  
+    // axios.get('sheets.spreadsheets.values')
+
   
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
-      console.log(formatName)
-  
+    //   console.log(formatName)
+      return formatName;
+      
     } catch (err) {
       console.error(err);
     }
   
   }
-  main();
+  main().then(value => {
+    console.log(value);
+  })
+  //thanks hodeman
   
   module.exports = {
     main
