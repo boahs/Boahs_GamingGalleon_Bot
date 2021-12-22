@@ -1,0 +1,25 @@
+{
+  "name": "boahs_gaminggalleon_bot",
+  "version": "1.0.0",
+  "description": "bot for twitch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boahs/Boahs_GamingGalleon_Bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boahs/Boahs_GamingGalleon_Bot/issues"
+  },
+  "homepage": "https://github.com/boahs/Boahs_GamingGalleon_Bot#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "googleapis": "^92.0.0",
+    "tmi.js": "^1.5.0"
+  }
+}

@@ -6,7 +6,8 @@ const topPlayer = () => {
           return console.error(err);
         }
       })
-    return db.run(`SELECT * FROM topScores ORDER BY Score DESC LIMIT 1 `);
+      console.log(db.run(`SELECT playerName, Score FROM topScores ORDER BY Score DESC LIMIT 1 OFFSET 1 `))
+    return db.run(`SELECT playerName, Score FROM topScores ORDER BY Score DESC LIMIT 1 OFFSET 1 `);
 }
 
 module.exports = {

@@ -3,25 +3,25 @@ const readline = require("readline");
 const { google } = require("googleapis");
 const { client } = require("tmi.js");
 require("dotenv").config();
-const sqlite3 = require('sqlite3').verbose();
+// const sqlite3 = require('sqlite3').verbose();
 const opts = process.env.API_KEY;
 
 //database mainDB.db
-let db = new sqlite3.Database('mainDB.db', (err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Connected to the in-memory SQlite database.');
-});
+// let db = new sqlite3.Database('mainDB.db', (err) => {
+//   if (err) {
+//     return console.error(err.message);
+//   }
+//   console.log('Connected to the in-memory SQlite database.');
+// });
 
-console.log(db)
-// close the database connection
-db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Close the database connection.');
-});
+// console.log(db)
+// // close the database connection
+// db.close((err) => {
+//   if (err) {
+//     return console.error(err.message);
+//   }
+//   console.log('Close the database connection.');
+// });
 
 
 
