@@ -26,6 +26,8 @@ async function main () {
   
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
     //   console.log(formatName)
@@ -37,7 +39,7 @@ async function main () {
   
   }
   main().then(value => {
-    console.log(value);
+    console.log(`${value}`);
   })
   //thanks hodeman
   

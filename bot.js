@@ -15,7 +15,9 @@ const randomGester = require("./commands/randomGester")
 const path = require('path');
 const util = require('util');
 const axios = require('axios');
-const gameWinner = require('./commands/gameNamePlaceholder')
+const {google} = require('googleapis');
+const sheets = google.sheets('v4');
+
 
 
 
@@ -47,7 +49,6 @@ client.on("message", onMessageHandler);
 client.on("connected", onConnectedHandler);
 client.connect();
 
-gameWinner.main();
 // const bullShit = fetchTop10.fetchTop10();
 // console.log(`Sha: ${JSON.stringify(bullShit)}`)
 
@@ -68,6 +69,7 @@ function onMessageHandler(target, context, msg, self) {
   const testStuff = (data) => {
     console.log(data);
   };
+  
 
   // gets username
   const username = context.username;
@@ -86,6 +88,64 @@ function onMessageHandler(target, context, msg, self) {
   //console.log(`TEST RESULTS FOR SHA: ${results.randomVoyage()}`);
 
 
+
+
+
+const announceGameWinner = () => {
+
+
+  async function main () {
+
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
+
+    const authClient = opts.identity.google
+  
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `C4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+  
+    // axios.get('sheets.spreadsheets.values')
+
+  
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+
+
+      // TODO: Change code below to process the `response` object:
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+      
+    } catch (err) {
+      console.error(err);
+    }
+  
+  }
+  main().then(value => {
+    const re = /([][])/g
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+      .toUpperCase()
+    }`);
+  })
+};
+
+// thanks hodeman :) 
+
+
+
+
   switch(commandName){
     case "!commands":
       client.say(target, "!leaderboard , !{gamename} , !voyage , !deals")
@@ -100,7 +160,7 @@ function onMessageHandler(target, context, msg, self) {
       client.say(target, `${context.username} loves pancakes`) 
       break;
       case "!abc":
-      client.say(target, `${gameWinner.main()}`) 
+      client.say(target, `${announceGameWinner()}`) 
       break;
     case "!dice":
     const num = rollDice();
