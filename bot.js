@@ -88,9 +88,6 @@ function onMessageHandler(target, context, msg, self) {
   //console.log(`TEST RESULTS FOR SHA: ${results.randomVoyage()}`);
 
 
-
-
-
 const game1 = () => {
 
 
@@ -112,17 +109,13 @@ const game1 = () => {
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
     //   console.log(formatName)
       return formatName;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
@@ -136,10 +129,10 @@ const game1 = () => {
       .replace('"'," ")
       .replace('"'," ")
       .toUpperCase()
-    }`);
+    }`
+    );
   })
 };
-
 
 const game2 = () => {
 
@@ -156,11 +149,11 @@ const game2 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `D4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
-    };
+    };  
   
     // axios.get('sheets.spreadsheets.values')
 
@@ -180,7 +173,7 @@ const game2 = () => {
   
   }
   main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+    client.say(target, `The Xaledictorians ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
       .replace('"'," ")
@@ -684,6 +677,7 @@ const game12 = () => {
 
 
 
+
   switch(commandName){
     case "!commands":
       client.say(target, "!leaderboard , !{gamename} , !voyage , !deals")
@@ -692,8 +686,11 @@ const game12 = () => {
       client.say(target, `${context.username} loves pancakes`) 
       break;
       case "!abc":
-      client.say(target, `${game1()}`) 
+      game1(); 
       break;
+      case "!zyx":
+        game2();
+        break;
     case "!dice":
     const num = rollDice();
       client.say(target, `${context.username} rolled a ${num}`)

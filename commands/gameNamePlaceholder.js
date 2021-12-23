@@ -2,6 +2,7 @@ const {google} = require('googleapis');
 const sheets = google.sheets('v4');
 const axios = require('axios');
 require('dotenv').config();
+const tmi = require("tmi.js");
 
 async function main () {
 
@@ -39,7 +40,7 @@ async function main () {
   
   }
   main().then(value => {
-    console.log(`${value}`);
+    client.say(target,value);
   })
   //thanks hodeman
   
