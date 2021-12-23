@@ -17,7 +17,7 @@ const util = require('util');
 const axios = require('axios');
 const {google} = require('googleapis');
 const sheets = google.sheets('v4');
-
+const dirtyDozenGGQUOTE = require('./commands/dirtyDozenCongratsRandom')
 
 
 
@@ -88,10 +88,13 @@ function onMessageHandler(target, context, msg, self) {
   //console.log(`TEST RESULTS FOR SHA: ${results.randomVoyage()}`);
 
 
+  // score tracking is removed. it works but not needed until spreadsheet is updated with current top score cell.
+
+
 const game1 = () => {
 
 
-  async function main () {
+  async function game1main () {
 
     const opts = {
         identity: {
@@ -114,7 +117,7 @@ const game1 = () => {
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
     //   console.log(formatName)
-      return formatName;
+      return `${formatName}... ${dirtyDozenGGQUOTE.randomCongrats()}`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -122,7 +125,7 @@ const game1 = () => {
     }
   
   }
-  main().then(value => {
+  game1main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -134,10 +137,56 @@ const game1 = () => {
   })
 };
 
+// const game1Score = () => {
+
+
+//   async function game1Scoremain () {
+
+//     const opts = {
+//         identity: {
+//           google: process.env.KEY
+//         }
+//       };
+
+//     const authClient = opts.identity.google
+  
+//     const request = {
+//       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+//       range: `B6`, 
+//       valueRenderOption: 'FORMATTED_VALUE', 
+//       dateTimeRenderOption: 'SERIAL_NUMBER',  
+//       auth: authClient,
+//     };
+  
+//     try {
+//       const response = (await sheets.spreadsheets.values.get(request)).data;
+//       // TODO: Change code below to process the `response` object:
+//        const formatName =  JSON.stringify(response.values[0], null, 2);
+//     //   console.log(formatName)
+//       return formatName;
+//     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
+      
+//     } catch (err) {
+//       console.error(err);
+//     }
+  
+//   }
+//   game1Scoremain().then(value => {
+//     client.say(target, `With a score of ${value
+//       .replace('['," ")
+//       .replace(']'," ")
+//       .replace('"'," ")
+//       .replace('"'," ")
+//     }`
+//     );
+//   })
+// };
+
+
 const game2 = () => {
 
 
-  async function main () {
+  async function game2main () {
 
     const opts = {
         identity: {
@@ -172,7 +221,7 @@ const game2 = () => {
     }
   
   }
-  main().then(value => {
+  game2main().then(value => {
     client.say(target, `The Xaledictorians ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -183,10 +232,55 @@ const game2 = () => {
   })
 };
 
+// const game2Score = () => {
+
+
+//   async function game2Scoremain () {
+
+//     const opts = {
+//         identity: {
+//           google: process.env.KEY
+//         }
+//       };
+
+//     const authClient = opts.identity.google
+  
+//     const request = {
+//       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+//       range: `C9`, 
+//       valueRenderOption: 'FORMATTED_VALUE', 
+//       dateTimeRenderOption: 'SERIAL_NUMBER',  
+//       auth: authClient,
+//     };
+  
+//     try {
+//       const response = (await sheets.spreadsheets.values.get(request)).data;
+//       // TODO: Change code below to process the `response` object:
+//        const formatName =  JSON.stringify(response.values[0], null, 2);
+//     //   console.log(formatName)
+//       return formatName;
+//     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
+      
+//     } catch (err) {
+//       console.error(err);
+//     }
+  
+//   }
+//   game2Scoremain().then(value => {
+//     client.say(target, `With a score of ${value
+//       .replace('['," ")
+//       .replace(']'," ")
+//       .replace('"'," ")
+//       .replace('"'," ")
+//     }`
+//     );
+//   })
+// };
+
 const game3 = () => {
 
 
-  async function main () {
+  async function game3main () {
 
     const opts = {
         identity: {
@@ -221,7 +315,7 @@ const game3 = () => {
     }
   
   }
-  main().then(value => {
+  game3main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -235,7 +329,7 @@ const game3 = () => {
 const game4 = () => {
 
 
-  async function main () {
+  async function game4main () {
 
     const opts = {
         identity: {
@@ -270,7 +364,7 @@ const game4 = () => {
     }
   
   }
-  main().then(value => {
+  game4main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -284,7 +378,7 @@ const game4 = () => {
 const game5 = () => {
 
 
-  async function main () {
+  async function game5main () {
 
     const opts = {
         identity: {
@@ -319,7 +413,7 @@ const game5 = () => {
     }
   
   }
-  main().then(value => {
+  game5main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -333,7 +427,7 @@ const game5 = () => {
 const game6 = () => {
 
 
-  async function main () {
+  async function game6main () {
 
     const opts = {
         identity: {
@@ -368,7 +462,7 @@ const game6 = () => {
     }
   
   }
-  main().then(value => {
+  game6main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -382,7 +476,7 @@ const game6 = () => {
 const game7 = () => {
 
 
-  async function main () {
+  async function game7main () {
 
     const opts = {
         identity: {
@@ -417,7 +511,7 @@ const game7 = () => {
     }
   
   }
-  main().then(value => {
+  game7main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -431,7 +525,7 @@ const game7 = () => {
 const game8 = () => {
 
 
-  async function main () {
+  async function game8main () {
 
     const opts = {
         identity: {
@@ -466,7 +560,7 @@ const game8 = () => {
     }
   
   }
-  main().then(value => {
+  game8main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -480,7 +574,7 @@ const game8 = () => {
 const game9 = () => {
 
 
-  async function main () {
+  async function game9main () {
 
     const opts = {
         identity: {
@@ -515,7 +609,7 @@ const game9 = () => {
     }
   
   }
-  main().then(value => {
+  game9main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -529,7 +623,7 @@ const game9 = () => {
 const game10 = () => {
 
 
-  async function main () {
+  async function game10main () {
 
     const opts = {
         identity: {
@@ -564,7 +658,7 @@ const game10 = () => {
     }
   
   }
-  main().then(value => {
+  game10main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -578,7 +672,7 @@ const game10 = () => {
 const game11 = () => {
 
 
-  async function main () {
+  async function game11main () {
 
     const opts = {
         identity: {
@@ -613,7 +707,7 @@ const game11 = () => {
     }
   
   }
-  main().then(value => {
+  game11main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -627,7 +721,7 @@ const game11 = () => {
 const game12 = () => {
 
 
-  async function main () {
+  async function game12main () {
 
     const opts = {
         identity: {
@@ -662,7 +756,7 @@ const game12 = () => {
     }
   
   }
-  main().then(value => {
+  game12main().then(value => {
     client.say(target, `The Thornwood Magnate ! Presenting : ${value
       .replace('['," ")
       .replace(']'," ")
@@ -677,7 +771,6 @@ const game12 = () => {
 
 
 
-
   switch(commandName){
     case "!commands":
       client.say(target, "!leaderboard , !{gamename} , !voyage , !deals")
@@ -686,10 +779,10 @@ const game12 = () => {
       client.say(target, `${context.username} loves pancakes`) 
       break;
       case "!abc":
-      game1(); 
+        game1(); 
       break;
       case "!zyx":
-        game2();
+        game2(); 
         break;
     case "!dice":
     const num = rollDice();
