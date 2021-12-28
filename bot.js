@@ -29,7 +29,7 @@ const opts = {
     password: process.env.OAUTH,
     google: process.env.KEY
   },
-  channels: ["boahs"],
+  channels: ["boahs","the_gaming_galleon"],
   debug: false,
   slowmode: slow,
 };
@@ -91,6 +91,9 @@ function onMessageHandler(target, context, msg, self) {
   // score tracking is removed. it works but not needed until spreadsheet is updated with current top score cell.
 
 
+
+
+
 const game1 = () => {
 
 
@@ -135,52 +138,53 @@ const game1 = () => {
     }`
     );
   })
+
 };
 
-// const game1Score = () => {
+const game1Score = () => {
 
 
-//   async function game1Scoremain () {
+  async function game1Scoremain () {
 
-//     const opts = {
-//         identity: {
-//           google: process.env.KEY
-//         }
-//       };
+    const opts = {
+        identity: {
+          google: process.env.KEY
+        }
+      };
 
-//     const authClient = opts.identity.google
+    const authClient = opts.identity.google
   
-//     const request = {
-//       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-//       range: `B6`, 
-//       valueRenderOption: 'FORMATTED_VALUE', 
-//       dateTimeRenderOption: 'SERIAL_NUMBER',  
-//       auth: authClient,
-//     };
+    const request = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
   
-//     try {
-//       const response = (await sheets.spreadsheets.values.get(request)).data;
-//       // TODO: Change code below to process the `response` object:
-//        const formatName =  JSON.stringify(response.values[0], null, 2);
-//     //   console.log(formatName)
-//       return formatName;
-//     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
+    try {
+      const response = (await sheets.spreadsheets.values.get(request)).data;
+      // TODO: Change code below to process the `response` object:
+       const formatName =  JSON.stringify(response.values[0], null, 2);
+    //   console.log(formatName)
+      return formatName;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
-//     } catch (err) {
-//       console.error(err);
-//     }
+    } catch (err) {
+      console.error(err);
+    }
   
-//   }
-//   game1Scoremain().then(value => {
-//     client.say(target, `With a score of ${value
-//       .replace('['," ")
-//       .replace(']'," ")
-//       .replace('"'," ")
-//       .replace('"'," ")
-//     }`
-//     );
-//   })
-// };
+  }
+  game1Scoremain().then(value => {
+    client.say(target, `With a score of ${value
+      .replace('['," ")
+      .replace(']'," ")
+      .replace('"'," ")
+      .replace('"'," ")
+    }`
+    );
+  })
+};
 
 
 const game2 = () => {
@@ -779,8 +783,13 @@ const game12 = () => {
       client.say(target, `${context.username} loves pancakes`) 
       break;
       case "!abc":
-        game1(); 
+        game1() 
+        game1Score()
       break;
+      case "!jungle":
+        client.say(target,"The Bane of Killbaba! SSDNINJA took this easily with a whomping score of 1,293,500 points!");
+      break;
+      //todo: last years games + titles + scores keep it simple
       case "!zyx":
         game2(); 
         break;
