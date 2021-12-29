@@ -17,7 +17,8 @@ const util = require('util');
 const axios = require('axios');
 const {google} = require('googleapis');
 const sheets = google.sheets('v4');
-const dirtyDozenGGQUOTE = require('./commands/dirtyDozenCongratsRandom')
+const dirtyDozenGGQUOTE = require('./commands/dirtyDozenCongratsRandom');
+const { format } = require("path");
 
 
 
@@ -114,49 +115,9 @@ const game1 = () => {
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
-  
-    try {
-      const response = (await sheets.spreadsheets.values.get(request)).data;
-      // TODO: Change code below to process the `response` object:
-      const formatName =  JSON.stringify(response.values[0], null, 2);
-    //   console.log(formatName)
-      return `${formatName}... ${dirtyDozenGGQUOTE.randomCongrats()}`;
-    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
-      
-    } catch (err) {
-      console.error(err);
-    }
-  
-  }
-  game1main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`
-    );
-  })
-
-};
-
-const game1Score = () => {
-
-
-  async function game1Scoremain () {
-
-    const opts = {
-        identity: {
-          google: process.env.KEY
-        }
-      };
-
-    const authClient = opts.identity.google
-  
-    const request = {
+    const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `C9`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -165,27 +126,28 @@ const game1Score = () => {
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
       // TODO: Change code below to process the `response` object:
-       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game1Scoremain().then(value => {
-    client.say(target, `With a score of ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
+  game1main().then((value) => {
+    client.say(target, `The Thornwood Magnate ! Presenting : ${value
     }`
     );
   })
-};
+  .catch((err) =>{
+    console.log(err)
+  })
 
+};
 
 const game2 = () => {
 
@@ -202,84 +164,44 @@ const game2 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `D4`, 
+      range: `B4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
-    };  
-  
-    // axios.get('sheets.spreadsheets.values')
-
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
   
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game2main().then(value => {
-    client.say(target, `The Xaledictorians ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game2main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
-
-// const game2Score = () => {
-
-
-//   async function game2Scoremain () {
-
-//     const opts = {
-//         identity: {
-//           google: process.env.KEY
-//         }
-//       };
-
-//     const authClient = opts.identity.google
-  
-//     const request = {
-//       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-//       range: `C9`, 
-//       valueRenderOption: 'FORMATTED_VALUE', 
-//       dateTimeRenderOption: 'SERIAL_NUMBER',  
-//       auth: authClient,
-//     };
-  
-//     try {
-//       const response = (await sheets.spreadsheets.values.get(request)).data;
-//       // TODO: Change code below to process the `response` object:
-//        const formatName =  JSON.stringify(response.values[0], null, 2);
-//     //   console.log(formatName)
-//       return formatName;
-//     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
-      
-//     } catch (err) {
-//       console.error(err);
-//     }
-  
-//   }
-//   game2Scoremain().then(value => {
-//     client.say(target, `With a score of ${value
-//       .replace('['," ")
-//       .replace(']'," ")
-//       .replace('"'," ")
-//       .replace('"'," ")
-//     }`
-//     );
-//   })
-// };
 
 const game3 = () => {
 
@@ -296,38 +218,43 @@ const game3 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game3main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game3main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game4 = () => {
@@ -345,38 +272,43 @@ const game4 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game4main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game4main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game5 = () => {
@@ -394,38 +326,43 @@ const game5 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game5main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game5main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game6 = () => {
@@ -443,38 +380,43 @@ const game6 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game6main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game6main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game7 = () => {
@@ -492,38 +434,43 @@ const game7 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game7main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game7main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game8 = () => {
@@ -541,38 +488,43 @@ const game8 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game8main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game8main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game9 = () => {
@@ -590,38 +542,43 @@ const game9 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game9main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game9main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game10 = () => {
@@ -639,38 +596,43 @@ const game10 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game10main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game10main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game11 = () => {
@@ -688,38 +650,43 @@ const game11 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game11main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game11main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
 
 const game12 = () => {
@@ -737,40 +704,45 @@ const game12 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
+      valueRenderOption: 'FORMATTED_VALUE', 
+      dateTimeRenderOption: 'SERIAL_NUMBER',  
+      auth: authClient,
+    };
+    const requestTest = {
+      spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
+      range: `B6`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
   
-    // axios.get('sheets.spreadsheets.values')
-
-  
     try {
       const response = (await sheets.spreadsheets.values.get(request)).data;
-
-
       // TODO: Change code below to process the `response` object:
       const formatName =  JSON.stringify(response.values[0], null, 2);
+      const response2 = (await sheets.spreadsheets.values.get(requestTest)).data;
+      const formatScore =  JSON.stringify(response2.values[0], null, 2);
+      
     //   console.log(formatName)
-      return formatName;
+      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+    // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
       console.error(err);
     }
-  
   }
-  game12main().then(value => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
-      .replace('['," ")
-      .replace(']'," ")
-      .replace('"'," ")
-      .replace('"'," ")
-      .toUpperCase()
-    }`);
+  game12main().then((value) => {
+    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    }`
+    );
   })
+  .catch((err) =>{
+    console.log(err)
+  })
+
 };
-// thanks hodeman couldn't of figured out the solution to resolving promise await returned without you! :) 
+// thanks hodeman couldn't of figured out the solution to resolving promise await returned without you - not to mention the in general help you spent time giving. Big ups to hodeman.
 
 
 
@@ -779,20 +751,51 @@ const game12 = () => {
     case "!commands":
       client.say(target, "!leaderboard , !{gamename} , !voyage , !deals")
       break;
-    case "!pan":
+      case "!pan":
       client.say(target, `${context.username} loves pancakes`) 
       break;
-      case "!abc":
-        game1() 
-        game1Score()
-      break;
       case "!jungle":
-        client.say(target,"The Bane of Killbaba! SSDNINJA took this easily with a whomping score of 1,293,500 points!");
+        client.say(target,"The Bane of Killbaba! SSDNINJA took this title with a whomping score of 1,293,500 points on the snow fortress level!");
       break;
-      //todo: last years games + titles + scores keep it simple
+      case "!shining":
+        client.say(target, "The Thornwood Magnate! EX_MORTIS a masterful merchant of war who accumulated 4,206,969 gold!");
+      break;
+      case "!xmen":
+        client.say(target, "The Xaledictorians! FOEDUB and TORRABELLE took this prized title by completing 7 missions collectively! (Foedub: 4 missions solo, torrabelle 3 missions coop)");
+      break;
+      case "!crueball":
+        client.say(target, "The Bangin' Baller RICHSOCASH managed to hit volume level 9 with a score of 37,402,500 points! Watch out!");
+      break;
+      case "!bio":
+        client.say(target, "The Sword of Odysseus! SSDNINA took this battle to the next level with a total score of 295,150 points on normal mode!");
+      break;
+      case "!nhl":
+        client.say(target, "The High-Stickin' Hoser! RICHSOCASH played a breath taking game of scoring almost shutting out the rangers entirely! With a score of 23 GOALS as Boston vs the Rangers!");
+      break;
+      case "!chakan":
+        client.say(target, "The forever man... SSDNINJA managed to seal 4 portals! A score to remember forever... ");
+      break;
+      case "!carnage":
+        client.say(target, "The city savior! SSDNINJA delievered maximum carnage with an impressive final score of 999,999 points and 91% FA!");
+      break;
+      case "!champions":
+        client.say(target, "The Eternal Champion, FOEDUB! With 8 impressive consecutive wins the foedub took this prize home!")
+      break;
+      case "!sonic":
+        client.say(target, "The Blast Processor, SSDNINJA! A deserved win with a completion time of 1:27 on mushroom Act 2 and a score of 38,1000!");
+      break;
+      case "!light":
+        client.say(target, "The Green Row Guardian, SSDNINJA! A impressive health level of 200HP and 22 Gear set SsdNinja on a path of victory");
+      break;
+      case "!mercs":
+        client.say(target, "The UniMERcial soldier! EX_MORTIS achieved a total score of 1,818,300 points on original mode!");
+      break;
+      case "!abc":
+        game1()
+      break;
       case "!zyx":
-        game2(); 
-        break;
+        game2()
+      break;
     case "!dice":
     const num = rollDice();
       client.say(target, `${context.username} rolled a ${num}`)
