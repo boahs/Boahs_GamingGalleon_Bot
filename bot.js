@@ -110,14 +110,14 @@ const game1 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C4`, 
+      range: `B4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `C9`, 
+      range: `B5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -164,14 +164,14 @@ const game2 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `C4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `C5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -218,14 +218,14 @@ const game3 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `D4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `D5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -272,14 +272,14 @@ const game4 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `E4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `E5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -326,14 +326,14 @@ const game5 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `F4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `F5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -380,14 +380,14 @@ const game6 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `G4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `G5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -434,14 +434,14 @@ const game7 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `H4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `H5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -488,14 +488,14 @@ const game8 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `I4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `I5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -542,14 +542,14 @@ const game9 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `J4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `J5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -596,14 +596,14 @@ const game10 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `K4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `K5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -650,14 +650,14 @@ const game11 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `L4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `L5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -704,14 +704,14 @@ const game12 = () => {
   
     const request = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B4`, 
+      range: `M4`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
     };
     const requestTest = {
       spreadsheetId: '1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM',
-      range: `B6`, 
+      range: `M5`, 
       valueRenderOption: 'FORMATTED_VALUE', 
       dateTimeRenderOption: 'SERIAL_NUMBER',  
       auth: authClient,
@@ -749,7 +749,7 @@ const game12 = () => {
 
   switch(commandName){
     case "!commands":
-      client.say(target, "!leaderboard , !{gamename} , !voyage , !deals")
+      client.say(target, "My commands can be viewed by selecting the dropdown option here => https://boahsbot.netlify.app/")
       break;
       case "!pan":
       client.say(target, `${context.username} loves pancakes`) 
@@ -767,7 +767,7 @@ const game12 = () => {
         client.say(target, "The Bangin' Baller RICHSOCASH managed to hit volume level 9 with a score of 37,402,500 points! Watch out!");
       break;
       case "!bio":
-        client.say(target, "The Sword of Odysseus! SSDNINA took this battle to the next level with a total score of 295,150 points on normal mode!");
+        client.say(target, "The Sword of Odysseus! SSDNINJA took this battle to the next level with a total score of 295,150 points on normal mode!");
       break;
       case "!nhl":
         client.say(target, "The High-Stickin' Hoser! RICHSOCASH played a breath taking game of scoring almost shutting out the rangers entirely! With a score of 23 GOALS as Boston vs the Rangers!");
@@ -779,7 +779,7 @@ const game12 = () => {
         client.say(target, "The city savior! SSDNINJA delievered maximum carnage with an impressive final score of 999,999 points and 91% FA!");
       break;
       case "!champions":
-        client.say(target, "The Eternal Champion, FOEDUB! With 8 impressive consecutive wins the foedub took this prize home!")
+        client.say(target, "The Eternal Champion, FOEDUB! With 8 impressive consecutive wins, FOEDUB took this prize home!")
       break;
       case "!sonic":
         client.say(target, "The Blast Processor, SSDNINJA! A deserved win with a completion time of 1:27 on mushroom Act 2 and a score of 38,1000!");
@@ -790,32 +790,58 @@ const game12 = () => {
       case "!mercs":
         client.say(target, "The UniMERcial soldier! EX_MORTIS achieved a total score of 1,818,300 points on original mode!");
       break;
-      case "!abc":
+      case "!abc": //today : Change string for each function to represent actual dirty dozen designiation(title)
         game1()
       break;
-      case "!zyx":
+      case "!2":
         game2()
       break;
-    case "!dice":
-    const num = rollDice();
-      client.say(target, `${context.username} rolled a ${num}`)
+      case "!3":
+        game3()
       break;
-    case "!voyage": 
+      case "!4":
+        game4()
+      break;
+      case "!5":
+        game5()
+      break;
+      case "!6":
+        game6()
+      break;
+      case "!7":
+        game7()
+      break;
+      case "!8":
+        game8()
+      break;
+      case "!9":
+        game9()
+      break;
+      case "!10":
+        game10()
+      break;
+      case "!11":
+        game11()
+      break;
+      case "!12":
+        game12()
+      break;
+      case "!voyage": 
       client.say(target, `${context.username} wants a random voyage! As promised, here you go : Your random voyage MrDestructoid : ${results.randomVoyage()}`);
       break;
-    case "!dirtydozen":
+      case "!dirtydozen":
       client.say(target, " https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0");
       break;
-    case "!echo":
+      case "!echo":
       client.say(target, `@${context.username}, you said: "${args.join(' ')}"`)
       break;
-    case "!ggtv": 
+      case "!ggtv": 
       client.say(target, "https://www.twitch.tv/gaminggalleontv Catch up on all the voyages at the 24/7 channel!");
       break;
-    case "!leaderboard":
+      case "!2021Dozen":
       client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0");
       break;
-    case "!deals":
+      case "!deals":
       client.say(target, "https://clips.twitch.tv/GleamingLittleOcelotWTRuck");
       break;
   }
@@ -823,15 +849,9 @@ const game12 = () => {
 
 }
 
-
-// Function called when the "dice" command is issued
-function rollDice() {
-  const sides = 6;
-  return Math.floor(Math.random() * sides) + 1;
-}
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
-  console.log(`* Connected to ${addr}:${port}`);
+  console.log(`* Boahs Bot is Connected to ${addr}:${port}`);
 }
 
 
