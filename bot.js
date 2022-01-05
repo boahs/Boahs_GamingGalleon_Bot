@@ -33,7 +33,9 @@ const opts = {
   channels: ["boahs","the_gaming_galleon"],
   debug: false,
   slowmode: slow,
+  reconnect: true
 };
+
 // channels: ["boahs", "gaminggalleontv", "the_gaming_galleon", "ex_mortis"],
 
 // const db = new sqlite3.Database('mainDB.db', (err) =>{
@@ -49,6 +51,10 @@ const client = new tmi.client(opts);
 client.on("message", onMessageHandler);
 client.on("connected", onConnectedHandler);
 client.connect();
+
+client.on('message', (channel, tags, message, self) => {
+	console.log(`${tags['display-name']}: ${message}`);
+});
 
 // const bullShit = fetchTop10.fetchTop10();
 // console.log(`Sha: ${JSON.stringify(bullShit)}`)
@@ -774,6 +780,9 @@ const game12 = () => {
       break;
       case "!chakan":
         client.say(target, "The forever man... SSDNINJA managed to seal 4 portals! A score to remember forever... ");
+      break;
+      case "!nelly":
+        client.say(target, `Batter up ${context.username}`)
       break;
       case "!carnage":
         client.say(target, "The city savior! SSDNINJA delievered maximum carnage with an impressive final score of 999,999 points and 91% FA!");
