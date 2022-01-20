@@ -769,13 +769,13 @@ const game12 = () => {
         client.say(target, "The Xaledictorians! FOEDUB and TORRABELLE took this prized title by completing 7 missions collectively! (Foedub: 4 missions solo, torrabelle 3 missions coop)");
       break;
       case "!crueball":
-        client.say(target, "The Bangin' Baller RICHSOCASH managed to hit volume level 9 with a score of 37,402,500 points! Watch out!");
+        client.say(target, "The Bangin' Baller Richsocash managed to hit volume level 9 with a score of 37,402,500 points! Watch out!");
       break;
       case "!bio":
         client.say(target, "The Sword of Odysseus! SSDNINJA took this battle to the next level with a total score of 295,150 points on normal mode!");
       break;
       case "!nhl":
-        client.say(target, "The High-Stickin' Hoser! RICHSOCASH played a breath taking game of scoring almost shutting out the rangers entirely! With a score of 23 GOALS as Boston vs the Rangers!");
+        client.say(target, "The High-Stickin' Hoser! Richsocash played a breath taking game! Almost shutting out the rangers entirely! With a score of 23 GOALS as Boston vs the Rangers!");
       break;
       case "!chakan":
         client.say(target, "The forever man... SSDNINJA managed to seal 4 portals! A score to remember forever... ");
