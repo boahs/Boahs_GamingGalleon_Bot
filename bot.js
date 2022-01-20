@@ -51,7 +51,6 @@ const client = new tmi.client(opts);
 client.on("message", onMessageHandler);
 client.on("connected", onConnectedHandler);
 client.connect();
-
 client.on('message', (channel, tags, message, self) => {
 	console.log(`${tags['display-name']}: ${message}`);
 });
@@ -847,7 +846,7 @@ const game12 = () => {
       case "!ggtv": 
       client.say(target, "https://www.twitch.tv/gaminggalleontv Catch up on all the voyages at the 24/7 channel!");
       break;
-      case "!2021Dozen":
+      case "!2022Dozen":
       client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0");
       break;
       case "!deals":
