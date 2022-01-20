@@ -838,7 +838,7 @@ const game12 = () => {
       client.say(target, `${context.username} wants a random voyage! As promised, here you go : Your random voyage MrDestructoid : ${results.randomVoyage()}`);
       break;
       case "!dirtydozen":
-      client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0");
+      client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1366029322");
       break;
       case "!echo":
       client.say(target, `@${context.username}, you said: "${args.join(' ')}"`)
