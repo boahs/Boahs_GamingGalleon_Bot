@@ -838,16 +838,13 @@ const game12 = () => {
       client.say(target, `${context.username} wants a random voyage! As promised, here you go : Your random voyage MrDestructoid : ${results.randomVoyage()}`);
       break;
       case "!dirtydozen":
-      client.say(target, " https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0");
+      client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0");
       break;
       case "!echo":
       client.say(target, `@${context.username}, you said: "${args.join(' ')}"`)
       break;
       case "!ggtv": 
       client.say(target, "https://www.twitch.tv/gaminggalleontv Catch up on all the voyages at the 24/7 channel!");
-      break;
-      case "!2022Dozen":
-      client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=0");
       break;
       case "!deals":
       client.say(target, "https://clips.twitch.tv/GleamingLittleOcelotWTRuck");
