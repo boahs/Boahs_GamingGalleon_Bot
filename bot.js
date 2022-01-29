@@ -754,7 +754,7 @@ const game12 = () => {
 
   switch(commandName){
     case "!commands":
-      client.say(target, "My commands can be viewed by selecting the dropdown option here => https://boahsbot.netlify.app/")
+      client.say(target, "My commands can be viewed by selecting the dropdown option here => https://boahsbot.netlify.app/ Note: They are not case sensitive")
       break;
       case "!pan":
       client.say(target, `${context.username} loves pancakes`) 
@@ -796,42 +796,42 @@ const game12 = () => {
         client.say(target, "The Green Row Guardian, SSDNINJA! A impressive health level of 200HP and 22 Gear set SsdNinja on a path of victory");
       break;
       case "!mercs":
-        client.say(target, "The UniMERcial soldier! EX_MORTIS achieved a total score of 1,818,300 points on original mode!");
+        client.say(target, "The UniMERcial  soldier! EX_MORTIS achieved a total score of 1,818,300 points on original mode!");
       break;
-      case "!abc": //today : Change string for each function to represent actual dirty dozen designiation(title)
+      case "!thps": //today : Change string for each function to represent actual dirty dozen designiation(title)
         game1()
       break;
-      case "!2":
+      case "!wario":
         game2()
       break;
-      case "!3":
+      case "!pinball":
         game3()
       break;
-      case "!4":
+      case "!roadrash":
         game4()
       break;
-      case "!5":
+      case "!spyro":
         game5()
       break;
-      case "!6":
+      case "!yugioh":
         game6()
       break;
-      case "!7":
+      case "!mariotennis":
         game7()
       break;
-      case "!8":
+      case "!tekken":
         game8()
       break;
-      case "!9":
+      case "!dejavu":
         game9()
       break;
-      case "!10":
+      case "!tmnt":
         game10()
       break;
-      case "!11":
+      case "!grinch":
         game11()
       break;
-      case "!12":
+      case "!dbz":
         game12()
       break;
       case "!voyage": 
