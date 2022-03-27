@@ -136,7 +136,7 @@ const game1 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a highest final score of ${JSON.parse(formatScore)} on arcade mode in the map Suburbia! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -144,7 +144,7 @@ const game1 = () => {
     }
   }
   game1main().then((value) => {
-    client.say(target, `The Thornwood Magnate ! Presenting : ${value
+    client.say(target, `The Suburbian Scourge : ${value
     }`
     );
   })
@@ -190,7 +190,7 @@ const game2 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a fastest time on "DICE ROLL!" of  ${JSON.parse(formatScore)} on Out of the Woods ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -198,7 +198,7 @@ const game2 = () => {
     }
   }
   game2main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The World Warrioer : ${value
     }`
     );
   })
@@ -244,7 +244,7 @@ const game3 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} with a current score of ${JSON.parse(formatScore)} ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -252,7 +252,7 @@ const game3 = () => {
     }
   }
   game3main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The Head Shot Skiller : ${value
     }`
     );
   })
@@ -298,7 +298,7 @@ const game4 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has reached a racing circuit of ${JSON.parse(formatScore)}`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -306,7 +306,7 @@ const game4 = () => {
     }
   }
   game4main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The Rocky Mountain Rotted Rasher : ${value
     }`
     );
   })
@@ -352,7 +352,7 @@ const game5 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} with a completion percentage of ${JSON.parse(formatScore)} ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -360,7 +360,7 @@ const game5 = () => {
     }
   }
   game5main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The Purple Paragon  ! : ${value
     }`
     );
   })
@@ -406,7 +406,7 @@ const game6 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} with a current duelist level of ${JSON.parse(formatScore)} ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -414,7 +414,7 @@ const game6 = () => {
     }
   }
   game6main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The Ruling Duelist: : ${value
     }`
     );
   })
@@ -460,7 +460,7 @@ const game7 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} with a final score of ${JSON.parse(formatScore)} from their 6 set match! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -468,7 +468,7 @@ const game7 = () => {
     }
   }
   game7main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The Grand Slammin' Grand Stander! : ${value
     }`
     );
   })
@@ -514,7 +514,7 @@ const game8 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a fastest completion time of ${JSON.parse(formatScore)} on Time Attack on normal difficulty! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -522,7 +522,7 @@ const game8 = () => {
     }
   }
   game8main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The Lead Tekkenican : ${value
     }`
     );
   })
@@ -568,7 +568,7 @@ const game9 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has ${JSON.parse(formatScore)} money on their person! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -576,7 +576,7 @@ const game9 = () => {
     }
   }
   game9main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The Ace of Sam Spades: : ${value
     }`
     );
   })
@@ -622,7 +622,7 @@ const game10 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} who has a total profile score on hard difficulty of :  ${JSON.parse(formatScore)} ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -630,7 +630,7 @@ const game10 = () => {
     }
   }
   game10main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `Splinter's Successor: ${value
     }`
     );
   })
@@ -676,7 +676,7 @@ const game11 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a total score of ${JSON.parse(formatScore)} ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -684,7 +684,7 @@ const game11 = () => {
     }
   }
   game11main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `Wooville's Nightmare : ${value
     }`
     );
   })
@@ -730,7 +730,7 @@ const game12 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a objective score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} with  ${JSON.parse(formatScore)} damage dealt in ONE HIT! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -738,7 +738,7 @@ const game12 = () => {
     }
   }
   game12main().then((value) => {
-    client.say(target, `The Bane of Killbaba ! Presenting : ${value
+    client.say(target, `The Last Saiyan : ${value
     }`
     );
   })
@@ -755,6 +755,9 @@ const game12 = () => {
   switch(commandName){
     case "!commands":
       client.say(target, "My commands can be viewed by selecting the dropdown option here => https://boahsbot.netlify.app/ Note: They are not case sensitive")
+      break;
+    case "!slowrunning":
+      client.say(target, "https://clips.twitch.tv/BovineSingleStorkSeemsGood-ZzuSUrQdWcSBqqjO")
       break;
       case "!pan":
       client.say(target, `${context.username} loves pancakes`) 
