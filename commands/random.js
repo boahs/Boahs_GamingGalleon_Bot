@@ -145,6 +145,7 @@ const randomVoyage = () => {
     ": https://youtu.be/SbyzbseMAbU",
     ": https://youtu.be/quNiW94-eXA",
     ": https://youtu.be/4oKHwgWfrrU",
+    "[6/6/2022 6:14PM] The_Gaming_Galleon: and we washed ourselves clean in the que...and it was good."
   ];
 
   const randomNumber = Math.floor(Math.random() * testArr.length);

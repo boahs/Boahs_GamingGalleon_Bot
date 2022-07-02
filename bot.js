@@ -4,6 +4,7 @@ const result = require("./index");
 const results = require("./commands/random");
 const commandMaster = require("tmi.js/lib/commands");
 const shoutOut = require("./commands/shoutout")
+const sqlite3 = require('sqlite3').verbose();
 // const newScore = require("./commands/addHighScore");
 // const fetchTop10 = require("./commands/fetchTop10")
 // const topPlayer = require("./commands/topPlayer")
@@ -20,7 +21,8 @@ const sheets = google.sheets('v4');
 const dirtyDozenGGQUOTE = require('./commands/dirtyDozenCongratsRandom');
 const { format } = require("path");
 
-
+//TWITCH_CLIENT_ID
+//TWITCH_CLIENT_SECRET
 
 
 
@@ -28,9 +30,10 @@ const opts = {
   identity: {
     username: process.env.USER_NAME,
     password: process.env.OAUTH,
-    google: process.env.KEY
+    google: process.env.KEY,
+    twitch: process.env.TWITCH_CLIENT_SECRET
   },
-  channels: ["boahs","the_gaming_galleon"],
+  channels: ["boahs", "the_gaming_galleon", "gaminggalleontv"],
   debug: false,
   slowmode: slow,
   reconnect: true
@@ -97,7 +100,10 @@ function onMessageHandler(target, context, msg, self) {
   // score tracking is removed. it works but not needed until spreadsheet is updated with current top score cell.
 
 
+const twitchApiCall = () => {
 
+  
+}
 
 
 const game1 = () => {
