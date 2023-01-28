@@ -25,6 +25,9 @@ const { format } = require("path");
 //TWITCH_CLIENT_SECRET
 
 
+//twitch pubsub socket
+
+
 
 const opts = {
   identity: {
@@ -755,25 +758,25 @@ const game12 = () => {
 };
 // thanks hodeman couldn't of figured out the solution to resolving promise await returned without you - not to mention the in general help you spent time giving. Big ups to hodeman.
 
-
+//checks if a specific message was sent in chat
+const checkCharityMessage = () =>{
+    const msg = ["test"];
+    const filteredResult = msg.filter(word => msg.includes('Charity'))
+}
+ 
 
 
   switch(commandName){
-    case "!commands":
-      client.say(target, "My commands can be viewed by selecting the dropdown option here => https://boahsbot.netlify.app/ Note: They are not case sensitive")
-      break;
-    case "!slowrunning":
-      client.say(target, "https://clips.twitch.tv/BovineSingleStorkSeemsGood-ZzuSUrQdWcSBqqjO")
-      break;
-      case "!pan":
-      client.say(target, `${context.username} loves pancakes`) 
-      break;
+      //DD season 2021
       case "!jungle":
         client.say(target,"The Bane of Killbaba! SSDNINJA took this title with a whomping score of 1,293,500 points on the snow fortress level!");
       break;
       case "!shining":
         client.say(target, "The Thornwood Magnate! EX_MORTIS a masterful merchant of war who accumulated 4,206,969 gold!");
       break;
+      case "!mark":
+        client.say(target, "6503 score on 11/3/22 - Intellivision Happy Trails https://i.imgur.com/e5BCkrH.png, Four of a kind (9) score texas hold'em 11/9/22 - PS4 Red Dead Redemption 2 https://i.imgur.com/gqTknqy.png ")
+        break;
       case "!xmen":
         client.say(target, "The Xaledictorians! FOEDUB and TORRABELLE took this prized title by completing 7 missions collectively! (Foedub: 4 missions solo, torrabelle 3 missions coop)");
       break;
@@ -789,9 +792,6 @@ const game12 = () => {
       case "!chakan":
         client.say(target, "The forever man... SSDNINJA managed to seal 4 portals! A score to remember forever... ");
       break;
-      case "!nelly":
-        client.say(target, `Batter up ${context.username}`)
-      break;
       case "!carnage":
         client.say(target, "The city savior! SSDNINJA delievered maximum carnage with an impressive final score of 999,999 points and 91% FA!");
       break;
@@ -806,6 +806,42 @@ const game12 = () => {
       break;
       case "!mercs":
         client.say(target, "The UniMERcial  soldier! EX_MORTIS achieved a total score of 1,818,300 points on original mode!");
+        //DD season 2022
+      case "!wario":
+          client.say(target,`The World Warrioer! Worlds_of_Rogue took this title with a deceived his way to victory with a time of 1:54 in "Out of the Woods!" map!`);
+      break;
+      case "!pinball":
+        client.say(target, "The Head Shot Skiller! Foedub had a final score on Cemetery of 312,371,000 points! Ho-ho-holy shit!");
+      break;
+      case "!roadrash":
+        client.say(target, "Foedub the Rocky Mountain Rotted Rashertook no prisoners when they reached the score of $10,900 on level 2.")
+      break;
+      case "!spyro":
+        client.say(target, "The Purple Paragon - A tie between Milten and Foedub - They share the purple crown both having a 100% completion percentage.");
+        break;
+      case "!yugioh":
+        client.say(target, "The Ruling Duelist Ex-Mortis earned a duelist level of 255");
+      break;
+      case "!mariotennis":
+        client.say(target, "The Grand Slammin' Grand Stander! Foedub the merciless takes another win home by having 23 score!");
+      break;
+      case "!dejavu":
+        client.say(target, `TheMorningAfterKill also known as The Lead Tekkenican holds his title with the fastest competion time of time attack with 3'49"21!`);
+      break;
+      case "!tmnt":
+        client.say(target, "World_of_Rogue - The Ace of Sam Spades snoops his way to victory while having $4,702 dollars to spend at his leisure!");
+      break;
+      case "!grinch":
+        client.say(target, "Splinter's Successor AKA : FoeDub ... again?! You might know him by three other titles or four...or five! He takes another! with 2,618,600 20/20 crystals...woah!");
+      break;
+      case "!dbz":
+        client.say(target, "Whoville's Nightmare also known as Worlds_of_Rogue not only stole Christmas but also scored a high score of 190,200 points.")
+      break;
+      case "!thps":
+        client.say(target, "FoeDub - The Last Saiyan saves the planet by having 5238 damage done in ONE hit whilst playing Vegeta!");
+      break;
+      case "!tekken":
+        client.say(target, "FoeDub! The Suburbian Scourge; skates his way through the Suburia and manages to achieve a score of 1,318,2623!");
       break;
       case "!thps": //today : Change string for each function to represent actual dirty dozen designiation(title)
         game1()
@@ -843,6 +879,30 @@ const game12 = () => {
       case "!dbz":
         game12()
       break;
+      case "!commands":
+        client.say(target, "My commands can be viewed by selecting the dropdown option here => https://boahsbot.netlify.app/ Note: They are not case sensitive")
+        break;
+      case "!huzzah":
+        client.say(target, `HUZZAH TO ${context.username}! HUZZAH!`)
+        break;
+      case "!gun":
+        client.say(target, "L & SHIFT + T to fix the gun");
+        break;
+      case "!jupiter":
+        client.say(target, `"ok I finally fucking delved into the whole nasa rape movie" -JupiterOil [Jul 17 2022 06:02:57 PM] `);
+        break;
+      case "!slowrunning":
+        client.say(target, "https://clips.twitch.tv/BovineSingleStorkSeemsGood-ZzuSUrQdWcSBqqjO")
+        break;
+      case "!reveal":
+        client.say(target, `${context.username} - The final sunday of this month the 29th at 7PM EST will be the dirty dozen reveal!`)
+        break;
+        case "!pan":
+        client.say(target, `${context.username} loves pancakes`) 
+        break;
+      case "!nelly":
+        client.say(target, `Batter up ${context.username}`)
+      break;
       case "!voyage": 
       client.say(target, `${context.username} wants a random voyage! As promised, here you go : Your random voyage MrDestructoid : ${results.randomVoyage()}`);
       break;
@@ -858,6 +918,9 @@ const game12 = () => {
       case "!deals":
       client.say(target, "https://clips.twitch.tv/GleamingLittleOcelotWTRuck");
       break;
+      case "!tooth":
+        client.say(target, "One of my molar teeth has a crack going up one side. :) Not using mic until it's repaired hopefully this week. Thanks for using my command.");
+        break;
   }
   
 

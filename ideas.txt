@@ -1,0 +1,8 @@
+idea:
+modular component that may mount that deploys IR lasers to kill any flying pests instantly.
+
+game "queue simulator" sit in eternal queue.
+
+twitch plays "seaman"
+twitch controls the sega dreamcast game "Seaman" 
+This game has audio / mic support. Could game read text to voice translator?
