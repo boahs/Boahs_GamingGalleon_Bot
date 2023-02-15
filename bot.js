@@ -36,7 +36,7 @@ const opts = {
     google: process.env.KEY,
     twitch: process.env.TWITCH_CLIENT_SECRET
   },
-  channels: ["boahs", "the_gaming_galleon", "gaminggalleontv"],
+  channels: ["boahs", "the_gaming_galleon", "gaminggalleontv", "wakeandplay", "themorningafterkill"],
   debug: false,
   slowmode: slow,
   reconnect: true
@@ -108,7 +108,7 @@ const twitchApiCall = () => {
   
 }
 
-
+//done 2023
 const game1 = () => {
 
 
@@ -145,7 +145,7 @@ const game1 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has a highest final score of ${JSON.parse(formatScore)} on arcade mode in the map Suburbia! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a highest final score of ${JSON.parse(formatScore)} on on Ski Ridge, Hokkaido.`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -153,7 +153,7 @@ const game1 = () => {
     }
   }
   game1main().then((value) => {
-    client.say(target, `The Suburbian Scourge : ${value
+    client.say(target, `Double D7 : ${value
     }`
     );
   })
@@ -162,7 +162,7 @@ const game1 = () => {
   })
 
 };
-
+//done 2023
 const game2 = () => {
 
 
@@ -199,7 +199,7 @@ const game2 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has a fastest time on "DICE ROLL!" of  ${JSON.parse(formatScore)} on Out of the Woods ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has the most secrets found with a total of:  ${JSON.parse(formatScore)}`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -207,7 +207,7 @@ const game2 = () => {
     }
   }
   game2main().then((value) => {
-    client.say(target, `The World Warrioer : ${value
+    client.say(target, `The Vae Victor : ${value
     }`
     );
   })
@@ -253,7 +253,7 @@ const game3 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a current score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has the longest time on Surival mode with a time of ${JSON.parse(formatScore)} ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -261,7 +261,7 @@ const game3 = () => {
     }
   }
   game3main().then((value) => {
-    client.say(target, `The Head Shot Skiller : ${value
+    client.say(target, `The Sky Scrapper : ${value
     }`
     );
   })
@@ -415,7 +415,7 @@ const game6 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a current duelist level of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has ${JSON.parse(formatScore)} guardians so far! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -423,7 +423,7 @@ const game6 = () => {
     }
   }
   game6main().then((value) => {
-    client.say(target, `The Ruling Duelist: : ${value
+    client.say(target, `The Guardian Legend : ${value
     }`
     );
   })
@@ -469,7 +469,7 @@ const game7 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a final score of ${JSON.parse(formatScore)} from their 6 set match! `;
+      return `${JSON.parse(formatName.toUpperCase())} has acquired ${JSON.parse(formatScore)} chip `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -477,7 +477,7 @@ const game7 = () => {
     }
   }
   game7main().then((value) => {
-    client.say(target, `The Grand Slammin' Grand Stander! : ${value
+    client.say(target, `The Tycoon of Terror : ${value
     }`
     );
   })
@@ -577,7 +577,7 @@ const game9 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has ${JSON.parse(formatScore)} money on their person! `;
+      return `${JSON.parse(formatName.toUpperCase())} has the most consecutive DM victories with a total of ${JSON.parse(formatScore)} !`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -585,7 +585,7 @@ const game9 = () => {
     }
   }
   game9main().then((value) => {
-    client.say(target, `The Ace of Sam Spades: : ${value
+    client.say(target, `The Twisted Mister: ${value
     }`
     );
   })
@@ -631,7 +631,7 @@ const game10 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} who has a total profile score on hard difficulty of :  ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has made the furthest west by reaching ${JSON.parse(formatScore)} ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -639,7 +639,7 @@ const game10 = () => {
     }
   }
   game10main().then((value) => {
-    client.say(target, `Splinter's Successor: ${value
+    client.say(target, `The Cannonball Roller: ${value
     }`
     );
   })
@@ -685,7 +685,7 @@ const game11 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has a total score of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a current time of ${JSON.parse(formatScore)} in the twilight open series! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -693,7 +693,7 @@ const game11 = () => {
     }
   }
   game11main().then((value) => {
-    client.say(target, `Wooville's Nightmare : ${value
+    client.say(target, `The Night Rider : ${value
     }`
     );
   })
@@ -817,7 +817,7 @@ const checkCharityMessage = () =>{
         client.say(target, "Foedub the Rocky Mountain Rotted Rashertook no prisoners when they reached the score of $10,900 on level 2.")
       break;
       case "!spyro":
-        client.say(target, "The Purple Paragon - A tie between Milten and Foedub - They share the purple crown both having a 100% completion percentage.");
+        client.say(target, "The Purple Paragon - A tie between Milten and Worlds_Of_Rogue - They share the purple crown both having a 100% completion percentage.");
         break;
       case "!yugioh":
         client.say(target, "The Ruling Duelist Ex-Mortis earned a duelist level of 255");
@@ -826,57 +826,57 @@ const checkCharityMessage = () =>{
         client.say(target, "The Grand Slammin' Grand Stander! Foedub the merciless takes another win home by having 23 score!");
       break;
       case "!dejavu":
-        client.say(target, `TheMorningAfterKill also known as The Lead Tekkenican holds his title with the fastest competion time of time attack with 3'49"21!`);
+        client.say(target, `World_of_Rogue - The Ace of Sam Spades snoops his way to victory while having $4,702 dollars to spend at his leisure!`);
       break;
       case "!tmnt":
-        client.say(target, "World_of_Rogue - The Ace of Sam Spades snoops his way to victory while having $4,702 dollars to spend at his leisure!");
-      break;
-      case "!grinch":
         client.say(target, "Splinter's Successor AKA : FoeDub ... again?! You might know him by three other titles or four...or five! He takes another! with 2,618,600 20/20 crystals...woah!");
       break;
+      case "!grinch":
+        client.say(target, "Whoville's Nightmare also known as Worlds_of_Rogue not only stole Christmas but also scored a high score of 190,200 points.");
+      break;
       case "!dbz":
-        client.say(target, "Whoville's Nightmare also known as Worlds_of_Rogue not only stole Christmas but also scored a high score of 190,200 points.")
+        client.say(target, "FoeDub - The Last Saiyan saves the planet by having 5238 damage done in ONE hit whilst playing Vegeta!")
       break;
       case "!thps":
-        client.say(target, "FoeDub - The Last Saiyan saves the planet by having 5238 damage done in ONE hit whilst playing Vegeta!");
-      break;
-      case "!tekken":
         client.say(target, "FoeDub! The Suburbian Scourge; skates his way through the Suburia and manages to achieve a score of 1,318,2623!");
       break;
-      case "!thps": //today : Change string for each function to represent actual dirty dozen designiation(title)
+      case "!tekken":
+        client.say(target, `TheMorningAfterKill also known as The Lead Tekkenican holds his title with the fastest competion time of time attack with 3'49"21!`);
+      break;
+      case "!007": //today : Change string for each function to represent actual dirty dozen designiation(title)
         game1()
       break;
-      case "!wario":
+      case "!blood":
         game2()
       break;
-      case "!pinball":
+      case "!spiderman":
         game3()
       break;
-      case "!roadrash":
+      case "!xfiles":
         game4()
       break;
-      case "!spyro":
+      case "!specops":
         game5()
       break;
-      case "!yugioh":
+      case "!final":
         game6()
       break;
-      case "!mariotennis":
+      case "!echo":
         game7()
       break;
-      case "!tekken":
+      case "!medievil":
         game8()
       break;
-      case "!dejavu":
+      case "!tm4":
         game9()
       break;
-      case "!tmnt":
+      case "!bigrace":
         game10()
       break;
-      case "!grinch":
+      case "!needspeed":
         game11()
       break;
-      case "!dbz":
+      case "!jampack":
         game12()
       break;
       case "!commands":
@@ -904,20 +904,29 @@ const checkCharityMessage = () =>{
         client.say(target, `Batter up ${context.username}`)
       break;
       case "!voyage": 
-      client.say(target, `${context.username} wants a random voyage! As promised, here you go : Your random voyage MrDestructoid : ${results.randomVoyage()}`);
-      break;
+        client.say(target, `${context.username} wants a random voyage! As promised, here you go : Your random voyage MrDestructoid : ${results.randomVoyage()}`);
+        break;
       case "!dirtydozen":
-      client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1366029322");
-      break;
+        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1670222973");
+        break;
+      case "!dd":
+        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1670222973");
+        break;
+      case "!dozen":
+        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1670222973");
+        break;
+      case "!dirty":
+        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1670222973");
+        break;
       case "!echo":
-      client.say(target, `@${context.username}, you said: "${args.join(' ')}"`)
-      break;
+        client.say(target, `@${context.username}, you said: "${args.join(' ')}"`)
+        break;
       case "!ggtv": 
-      client.say(target, "https://www.twitch.tv/gaminggalleontv Catch up on all the voyages at the 24/7 channel!");
-      break;
+        client.say(target, "https://www.twitch.tv/gaminggalleontv Catch up on all the voyages at the 24/7 channel!");
+        break;
       case "!deals":
-      client.say(target, "https://clips.twitch.tv/GleamingLittleOcelotWTRuck");
-      break;
+        client.say(target, "https://clips.twitch.tv/GleamingLittleOcelotWTRuck");
+        break;
       case "!tooth":
         client.say(target, "One of my molar teeth has a crack going up one side. :) Not using mic until it's repaired hopefully this week. Thanks for using my command.");
         break;
@@ -928,7 +937,7 @@ const checkCharityMessage = () =>{
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
-  console.log(`* Boahs Bot is Connected to ${addr}:${port}`);
+  console.log(`*Greetings, Boahs! Boahs Bot is Connected to ${addr}:${port}`);
 }
 
 
