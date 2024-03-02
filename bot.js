@@ -34,9 +34,10 @@ const opts = {
     username: process.env.USER_NAME,
     password: process.env.OAUTH,
     google: process.env.KEY,
-    twitch: process.env.TWITCH_CLIENT_SECRET
+    twitch: process.env.TWITCH_CLIENT_SECRET,
+    youtube: process.env.YOUTUBE_API_KEY_V3
   },
-  channels: ["boahs", "the_gaming_galleon", "gaminggalleontv", "wakeandplay", "themorningafterkill"],
+  channels: ["boahs", "The_Gaming_Galleon"],
   debug: false,
   slowmode: slow,
   reconnect: true
@@ -78,6 +79,40 @@ function onMessageHandler(target, context, msg, self) {
   const args = msg.slice(0).split(' ');
   const commandName = args.shift().toLowerCase();
 
+
+
+//   async function handleTTSCommand(message) {
+//   if (message.startsWith('!tts')) {
+//     const voice = message.split(' ')[1];
+//     const text = message.substring(message.indexOf(' ') + 1 + voice.length + 1);
+
+//     try {
+//       const response = await axios.post(
+//         'https://api.11labs.ai/v1/tts',
+//         {
+//           text,
+//           voice,
+//         },
+//         {
+//           headers: {
+//             'Content-Type': 'application/json',
+//             Authorization: process.env.LABS_API_KEY,
+//           },
+//           responseType: 'stream',
+//         }
+//       );
+
+//       response.data.pipe(process.stdout);
+//     } catch (error) {
+//       console.error('Error:', error.message);
+//     }
+//   }
+// }
+
+// // Call the async function somewhere in your code
+// handleTTSCommand('!tts Some voice Text to convert to speech');
+
+
   const testStuff = (data) => {
     console.log(data);
   };
@@ -108,7 +143,48 @@ const twitchApiCall = () => {
   
 }
 
-//done 2023
+
+const youtubeApi =() => {
+  function authenticate() {
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
+        .then(function() { console.log("Sign-in successful"); },
+              function(err) { console.error("Error signing in", err); });
+  }
+  function loadClient() {
+    gapi.client.setApiKey(opts.YOUTUBE_API_KEY_V3);
+    return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  // Make sure the client is loaded and sign-in is complete before calling this method.
+  function execute() {
+    return gapi.client.youtube.search.list({
+      "part": [
+        "snippet"
+      ],
+      "channelId": "UCDIQWHSMuF28CIJsvRFi84g",
+      "channelType": "any",
+      "eventType": "none",
+      "order": "date"
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: "YOUR_CLIENT_ID"});
+  });
+}
+
+
+function getCurrentTimeString() {
+  return new Date().toTimeString().split(' ')[0];
+}
+
+//done 2024
 const game1 = () => {
 
 
@@ -145,7 +221,7 @@ const game1 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has a highest final score of ${JSON.parse(formatScore)} on on Ski Ridge, Hokkaido.`;
+      return `${JSON.parse(formatName.toUpperCase())} has a highest score of ${JSON.parse(formatScore)} on Psycho Pinball!`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -153,7 +229,7 @@ const game1 = () => {
     }
   }
   game1main().then((value) => {
-    client.say(target, `Double D7 : ${value
+    client.say(target, `Inlane of The Membrane : ${value
     }`
     );
   })
@@ -162,7 +238,7 @@ const game1 = () => {
   })
 
 };
-//done 2023
+//done 2024
 const game2 = () => {
 
 
@@ -199,7 +275,7 @@ const game2 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has the most secrets found with a total of:  ${JSON.parse(formatScore)}`;
+      return `${JSON.parse(formatName.toUpperCase())} had a final score of ${JSON.parse(formatScore)} on Green Track`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -207,7 +283,7 @@ const game2 = () => {
     }
   }
   game2main().then((value) => {
-    client.say(target, `The Vae Victor : ${value
+    client.say(target, `The Psycle Killer : ${value
     }`
     );
   })
@@ -216,7 +292,7 @@ const game2 = () => {
   })
 
 };
-
+//done 2024
 const game3 = () => {
 
 
@@ -253,7 +329,7 @@ const game3 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has the longest time on Surival mode with a time of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has earned the most Earnest totaling ${JSON.parse(formatScore)} on hardest diff! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -261,7 +337,7 @@ const game3 = () => {
     }
   }
   game3main().then((value) => {
-    client.say(target, `The Sky Scrapper : ${value
+    client.say(target, `Karnov's Kumite Conqueror : ${value
     }`
     );
   })
@@ -270,7 +346,7 @@ const game3 = () => {
   })
 
 };
-
+//done 2024
 const game4 = () => {
 
 
@@ -307,7 +383,7 @@ const game4 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has reached a racing circuit of ${JSON.parse(formatScore)}`;
+      return `${JSON.parse(formatName.toUpperCase())} has the highest single appraisal with a value of ${JSON.parse(formatScore)}`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -315,7 +391,7 @@ const game4 = () => {
     }
   }
   game4main().then((value) => {
-    client.say(target, `The Rocky Mountain Rotted Rasher : ${value
+    client.say(target, `The Smistonian : ${value
     }`
     );
   })
@@ -324,7 +400,7 @@ const game4 = () => {
   })
 
 };
-
+//done 2024
 const game5 = () => {
 
 
@@ -361,7 +437,7 @@ const game5 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with a completion percentage of ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a total of ${JSON.parse(formatScore)} stars on dizzy ! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -369,7 +445,7 @@ const game5 = () => {
     }
   }
   game5main().then((value) => {
-    client.say(target, `The Purple Paragon  ! : ${value
+    client.say(target, `Patron Bloke of The Yolk Folk : ${value
     }`
     );
   })
@@ -378,7 +454,7 @@ const game5 = () => {
   })
 
 };
-
+//done 2024
 const game6 = () => {
 
 
@@ -415,7 +491,7 @@ const game6 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has ${JSON.parse(formatScore)} guardians so far! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a score of ${JSON.parse(formatScore)} on Solaris! Wow!! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -423,7 +499,7 @@ const game6 = () => {
     }
   }
   game6main().then((value) => {
-    client.say(target, `The Guardian Legend : ${value
+    client.say(target, `Salvator Solaris : ${value
     }`
     );
   })
@@ -432,7 +508,7 @@ const game6 = () => {
   })
 
 };
-
+//done 2024
 const game7 = () => {
 
 
@@ -469,7 +545,7 @@ const game7 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has acquired ${JSON.parse(formatScore)} chip `;
+      return `${JSON.parse(formatName.toUpperCase())} has ${JSON.parse(formatScore)} diamonds collected!`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -477,7 +553,7 @@ const game7 = () => {
     }
   }
   game7main().then((value) => {
-    client.say(target, `The Tycoon of Terror : ${value
+    client.say(target, `The Cullinan Man: ${value
     }`
     );
   })
@@ -486,7 +562,7 @@ const game7 = () => {
   })
 
 };
-
+//done 2024
 const game8 = () => {
 
 
@@ -523,7 +599,7 @@ const game8 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has a fastest completion time of ${JSON.parse(formatScore)} on Time Attack on normal difficulty! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a score of ${JSON.parse(formatScore)} in 🔥The Ignition Factor!🔥`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -531,7 +607,7 @@ const game8 = () => {
     }
   }
   game8main().then((value) => {
-    client.say(target, `The Lead Tekkenican : ${value
+    client.say(target, `The Towering Inferno: ${value
     }`
     );
   })
@@ -540,7 +616,7 @@ const game8 = () => {
   })
 
 };
-
+//done 2024
 const game9 = () => {
 
 
@@ -577,7 +653,7 @@ const game9 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has the most consecutive DM victories with a total of ${JSON.parse(formatScore)} !`;
+      return `${JSON.parse(formatName.toUpperCase())} unlocked ${JSON.parse(formatScore)} secret characters in Worms Blast!`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -585,7 +661,7 @@ const game9 = () => {
     }
   }
   game9main().then((value) => {
-    client.say(target, `The Twisted Mister: ${value
+    client.say(target, `The Imperial Invertebrate: ${value
     }`
     );
   })
@@ -594,6 +670,7 @@ const game9 = () => {
   })
 
 };
+//done 2024
 
 const game10 = () => {
 
@@ -631,7 +708,7 @@ const game10 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has made the furthest west by reaching ${JSON.parse(formatScore)} ! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a score of ${JSON.parse(formatScore)} on Crash 'n' the boys street challenge! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -639,7 +716,7 @@ const game10 = () => {
     }
   }
   game10main().then((value) => {
-    client.say(target, `The Cannonball Roller: ${value
+    client.say(target, `The Springhill Smasher: ${value
     }`
     );
   })
@@ -648,7 +725,7 @@ const game10 = () => {
   })
 
 };
-
+//done 2024
 const game11 = () => {
 
 
@@ -685,7 +762,7 @@ const game11 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} has a current time of ${JSON.parse(formatScore)} in the twilight open series! `;
+      return `${JSON.parse(formatName.toUpperCase())} had ${JSON.parse(formatScore)} ammo in earthworm jim! `;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -693,7 +770,7 @@ const game11 = () => {
     }
   }
   game11main().then((value) => {
-    client.say(target, `The Night Rider : ${value
+    client.say(target, `The Cestodan Hoarder : ${value
     }`
     );
   })
@@ -702,7 +779,7 @@ const game11 = () => {
   })
 
 };
-
+//done 2024
 const game12 = () => {
 
 
@@ -739,7 +816,7 @@ const game12 = () => {
       const formatScore =  JSON.stringify(response2.values[0], null, 2);
       
     //   console.log(formatName)
-      return `${JSON.parse(formatName.toUpperCase())} with  ${JSON.parse(formatScore)} damage dealt in ONE HIT! `;
+      return `${JSON.parse(formatName.toUpperCase())} has a score of  ${JSON.parse(formatScore)} on cybattler!`;
     // can use return JSON.parse(formatName); as well need to comment out .replace() below as json parse does this
       
     } catch (err) {
@@ -747,8 +824,8 @@ const game12 = () => {
     }
   }
   game12main().then((value) => {
-    client.say(target, `The Last Saiyan : ${value
-    }`
+    client.say(target, `CyBattass : ${value
+}`
     );
   })
   .catch((err) =>{
@@ -763,8 +840,15 @@ const checkCharityMessage = () =>{
     const msg = ["test"];
     const filteredResult = msg.filter(word => msg.includes('Charity'))
 }
- 
 
+
+//song request shit
+
+//const { getNumberByUsername } = require('./database/twitchUsersSongRequests');
+
+//const requestedUsername = "andreikirilenko47";
+//const number = getNumberByUsername(requestedUsername);
+ 
 
   switch(commandName){
       //DD season 2021
@@ -810,7 +894,7 @@ const checkCharityMessage = () =>{
       case "!wario":
           client.say(target,`The World Warrioer! Worlds_of_Rogue took this title with a deceived his way to victory with a time of 1:54 in "Out of the Woods!" map!`);
       break;
-      case "!pinball":
+      case "!potd":
         client.say(target, "The Head Shot Skiller! Foedub had a final score on Cemetery of 312,371,000 points! Ho-ho-holy shit!");
       break;
       case "!roadrash":
@@ -843,44 +927,95 @@ const checkCharityMessage = () =>{
       case "!tekken":
         client.say(target, `TheMorningAfterKill also known as The Lead Tekkenican holds his title with the fastest competion time of time attack with 3'49"21!`);
       break;
+      //DD season 2023
       case "!007": //today : Change string for each function to represent actual dirty dozen designiation(title)
-        game1()
+        (target, `Conqueror__Worm became the Double D7 by having a high score of 116,400 on Ski Ridge, Hokkaido!`)
       break;
       case "!blood":
-        game2()
+        client.say(target, `The Vae Victor - Count Pupper took this score by finding 85 secrets in Nosgoth...`)
       break;
       case "!spiderman":
-        game3()
+        client.say(target,`GhostsDon'tWalk AKA: The Sky Scrapper managed to have a time of 1 hour 40 minutes and 34 seconds fighting on survival mode on the Building Top!`);
       break;
       case "!xfiles":
-        game4()
+        client.say(target,`Worlds_of_Rogue also known as The Rational Enquirer had a page count of 17 during their cryptic investigations!`)
       break;
       case "!specops":
-        game5()
+        client.say(target,`GhostDon'tWalk and Conqueror Worm also known as The Twin Towers barreled their way through mission 1 : Sicily on hard with a final score of 16,642 and 16,616!`)
       break;
-      case "!final":
-        game6()
+      case "!ff8":
+        client.say(target,`Bowtai1 managed to obtain 10 guardians and now forever holds the divine title: The Guardian Legend !`)
       break;
       case "!echo":
-        game7()
+        client.say(target,`World_of_Rogue - A multi title holder now adds another to his collect! The Tycoon of Terror with 4401 chips aquired.`)
       break;
       case "!medievil":
-        game8()
+        client.say(target,`StarmanJSP squaring off with the Iron Slugger had 200HP left when knocking his block off earning him the title The Square Mile Socker!`)
       break;
       case "!tm4":
-        game9()
+        client.say(target,`Our good friend TheMorningAfterKill also known as The Twisted Mister managed to aquire 44 death consecutive deathmatch victories!`)
       break;
       case "!bigrace":
-        game10()
+        client.say(target,`RichsoCash also known as The Cannonball Roller rolling his way to Seattle with a score of 142,879,950!`)
       break;
-      case "!needspeed":
-        game11()
+      case "!needforspeed":
+        client.say(target,`RichsoCash had a best time on the final track of 3'36"62 and landed a new title : The Night Rider`)
       break;
       case "!jampack":
-        game12()
+        client.say(target,`RichSoCash AKA: The Underground Astounder topping the triathlon with a score of 291!`)
       break;
+      //DD season 2024 - reminder for 2025, check comments for client say current timestring for early dozen commands. also add in function names game1() etc game2()
+     case "!psychopinball": //today : Change string for each function to represent actual dirty dozen designiation(title)
+     client.say(target, `StarmanJSP otherwise known as 'The Flipped Freak' retained a psycho score of 67,728,600 on the Wild West table`);
+     break;
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     case "!psychomotor":
+      client.say(target, `StarmanJSP AKA: The Psycle Killer! had a final high score on green track of 717,260! `);
+      break;
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!fightershistory":
+      client.say(target, `Karnov's Kumite Conqueror AKA: StarmanJSP adds another gold trophy to his collection for scoring the most points on hardest for Fighters History - He scored 950,700 playing Ray! `);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!stones":
+      client.say(target, `Ex-Mortis winning his title The Smistonian in an epic tie breaker with a final single appraisal score of 100,000,000! `);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!dizzy":
+      client.say(target, `Worlds_of_Rogue! Forever known now as Patron Bloke of The Yolk Folk! Clearing 0 number of stars.`);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!solaris":
+      client.say(target, `The Salvator Solaris! A title known across the stars - Our hero Conqueror Worm had a final high score of 147,620! Congrats!`);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!hunter":
+      client.say(target, `The Cullinan Man or if you're his friend you may known them as Worlds_of_Rogue - A brilliant display of aptitude for finding diamonds! He found a total of 160 with 8 lives remaining.`);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!ignition":
+      client.say(target, `StarmanJSP collects another gold trophy taking the title The Towering Inferno! With a highest final score of 4,441`);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!worms":
+      client.say(target, `CordCutter - The Imperial Invertebrate - unlocked 3 secret characters in worms blast! Cordy adds a notch to his dozen belt!`);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!streetchallenge":
+      client.say(target, `Bringing in their first gold trophy! Springhill State Champion is a new title Jefferson earned! Having a lowest sum of some crazy cool algorithm captain raz came up with that totaled to 14/6/49 69!`);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!earthwormjim":
+      client.say(target, `The cestodan Hoarder...StarmanJSP worms his way into another title by collecting 5,000 AMMO on Earnworm Jim! YEEHAW!`);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
+     case "!cybattler":
+      client.say(target, `Conqueror Worm also known as CyBattass ends his high score with a total of 532,670! Well done, soldier.`);
+       //client.say(target, `${getCurrentTimeString()}:Check back on this command when the destination goal and scores are printed on the document`)
+     break;
       case "!commands":
-        client.say(target, "My commands can be viewed by selecting the dropdown option here => https://boahsbot.netlify.app/ Note: They are not case sensitive")
+        client.say(target, "My commands can be viewed by selecting the dropdown option here => https://dirtydozengames.com/ Note: They are not case sensitive")
         break;
       case "!huzzah":
         client.say(target, `HUZZAH TO ${context.username}! HUZZAH!`)
@@ -894,32 +1029,23 @@ const checkCharityMessage = () =>{
       case "!slowrunning":
         client.say(target, "https://clips.twitch.tv/BovineSingleStorkSeemsGood-ZzuSUrQdWcSBqqjO")
         break;
-      case "!reveal":
-        client.say(target, `${context.username} - The final sunday of this month the 29th at 7PM EST will be the dirty dozen reveal!`)
-        break;
-        case "!pan":
+      case "!pan":
         client.say(target, `${context.username} loves pancakes`) 
         break;
-      case "!nelly":
-        client.say(target, `Batter up ${context.username}`)
-      break;
       case "!voyage": 
         client.say(target, `${context.username} wants a random voyage! As promised, here you go : Your random voyage MrDestructoid : ${results.randomVoyage()}`);
         break;
       case "!dirtydozen":
-        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1670222973");
+        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM");
         break;
       case "!dd":
-        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1670222973");
+        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM");
         break;
       case "!dozen":
-        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1670222973");
+        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM");
         break;
       case "!dirty":
-        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM/edit#gid=1670222973");
-        break;
-      case "!echo":
-        client.say(target, `@${context.username}, you said: "${args.join(' ')}"`)
+        client.say(target, "https://docs.google.com/spreadsheets/d/1_BHrMDFsL9Vnkmk_3gyoZUtl9zh7zSK83_XEwnkKaGM");
         break;
       case "!ggtv": 
         client.say(target, "https://www.twitch.tv/gaminggalleontv Catch up on all the voyages at the 24/7 channel!");
@@ -927,10 +1053,19 @@ const checkCharityMessage = () =>{
       case "!deals":
         client.say(target, "https://clips.twitch.tv/GleamingLittleOcelotWTRuck");
         break;
-      case "!tooth":
-        client.say(target, "One of my molar teeth has a crack going up one side. :) Not using mic until it's repaired hopefully this week. Thanks for using my command.");
-        break;
-  }
+      case "!sr": 
+      client.say(target, `${number}`)
+      break;
+      // case "!admin":
+      //   adminTest();
+      //   break
+      case "!rip":
+       client.say(target, "Juicy 53 necro - https://i.imgur.com/5JmrlcH.jpg I died by having the new widget window for emotes in game open taking over my screen. I began to panic as this was on my screen and couldn't get it off in time before dying. That's the way she goes. But I've since then rebinded this shit to my page up key. So hopefully it never happens again : ^ )")
+      break;
+      case "Fish Taco":
+        client.say(target, "Casablanca, Morocco")
+       break;
+      }
   
 
 }

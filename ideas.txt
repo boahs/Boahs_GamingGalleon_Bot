@@ -6,3 +6,8 @@ game "queue simulator" sit in eternal queue.
 twitch plays "seaman"
 twitch controls the sega dreamcast game "Seaman" 
 This game has audio / mic support. Could game read text to voice translator?
+
+!important idea!
+way to update google spreadsheet cells through twitch chat. should be doable since i already call the api for cell values. 
+research for update spreadsheet command
+https://github.com/tmijs/tmi.js/issues/283 for mod values with tmi js
