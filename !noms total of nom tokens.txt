@@ -1,0 +1,3 @@
+!noms total of nom tokens 
+!credits (checks credits 10= 1 rock vote, 20= 2 etc... never expire)
+!rockvote 1-4 (rocks the vote while RTV is active)
